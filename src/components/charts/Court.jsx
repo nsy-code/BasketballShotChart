@@ -46,7 +46,11 @@ const Court = (props) => {
 
         setSpots([
             ...spots,
-            { x: newX.toFixed(2), y: newY.toFixed(2), shot_made_flag: isMake },
+            {
+                x: parseFloat(newX.toFixed(2)),
+                y: parseFloat(newY.toFixed(2)),
+                shot_made_flag: isMake,
+            },
         ]);
     };
 
