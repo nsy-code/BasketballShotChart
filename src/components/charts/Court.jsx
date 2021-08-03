@@ -13,6 +13,8 @@ const Court = (props) => {
     const { spots, setSpots } = props;
     const [x, setX] = useState(0);
     const [y, setY] = useState(0);
+    const [courtX, setCourtX] = useState(0);
+    const [courtY, setCourtY] = useState(0);
     const [isMake, setIsMake] = useState(1);
     const divRef = useRef();
 
@@ -30,6 +32,11 @@ const Court = (props) => {
     const _onMouseMove = (e) => {
         setX(e.clientX);
         setY(e.clientY);
+        const { top, bottom, left, right } =
+            divRef.current.getBoundingClientRect();
+        const { newX, newY } = convertNumber(x, y, left, right, top, bottom);
+        setCourtX(newX.toFixed(2));
+        setCourtY(newY.toFixed(2));
     };
 
     const _onClick = (e) => {
@@ -39,28 +46,36 @@ const Court = (props) => {
 
         setSpots([
             ...spots,
-            { x: parseInt(newX), y: parseInt(newY), shot_made_flag: isMake },
+            { x: newX.toFixed(2), y: newY.toFixed(2), shot_made_flag: isMake },
         ]);
     };
 
     return (
         <div>
-            <div className="form-check form-switch">
-                <input
-                    className="form-check-input"
-                    type="checkbox"
-                    id="flexSwitchCheckDefault"
-                    onClick={() => {
-                        setIsMake(isMake ? 0 : 1);
-                    }}
-                />
-                <label
-                    className="form-check-label"
-                    htmlFor="flexSwitchCheckDefault"
-                >
-                    {isMake ? "Made" : "Miss"}
-                </label>
+            <div className="d-flex justify-content-between">
+                <div className="form-check form-switch">
+                    <input
+                        className="form-check-input"
+                        type="checkbox"
+                        id="flexSwitchCheckDefault"
+                        onClick={() => {
+                            setIsMake(isMake ? 0 : 1);
+                        }}
+                    />
+                    <label
+                        className="form-check-label"
+                        htmlFor="flexSwitchCheckDefault"
+                    >
+                        {isMake ? "Made" : "Miss"}
+                    </label>
+                </div>
+                <div>
+                    <p>
+                        ({courtX}, {courtY})
+                    </p>
+                </div>
             </div>
+
             <div
                 ref={divRef}
                 style={{ minHeight: "200px", minWidth: "200px" }}

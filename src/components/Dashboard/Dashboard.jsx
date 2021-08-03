@@ -27,7 +27,7 @@ const Dashboard = () => {
                     <div className="data-view">
                         <ShotChart
                             data={value}
-                            minCount={2}
+                            minCount={1}
                             isDisplayTips={true}
                         />
                     </div>

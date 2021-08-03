@@ -12,15 +12,13 @@ const newDialog = props => {
         <Dialog
         open={isOpen}
         onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">{"Do you want delete all data?"}</DialogTitle>
+        <DialogTitle>Do you want delete all data?</DialogTitle>
         <DialogActions>
           <Button onClick={handleConfirm} color="primary">
             OK
           </Button>
-          <Button onClick={handleClose} color="primary" autoFocus>
+          <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
         </DialogActions>
