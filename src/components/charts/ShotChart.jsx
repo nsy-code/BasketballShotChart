@@ -9,6 +9,7 @@ window.d3_hexbin = { hexbin: hexbin };
 
 const ShotChart = (props) => {
     const { data, minCount, isDisplayTips } = props;
+
     useEffect(() => {
         const final_shots = data.map((shot) => ({
             x: shot.x, 
@@ -17,6 +18,7 @@ const ShotChart = (props) => {
         }));
 
         const courtSelection = d3.select("#shot-chart");
+        courtSelection.html("hi");
         const chart_court = court().width(500);
         const chart_shots = shots()
             .shotRenderThreshold(minCount)

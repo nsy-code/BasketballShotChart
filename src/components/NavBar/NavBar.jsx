@@ -29,7 +29,7 @@ const NavBar = (props) => {
             />
             <BottomNavigationAction
                 value="/data"
-                label="Data"
+                label="Shot Data"
                 icon={<DescriptionIcon />}
             />
         </BottomNavigation>
