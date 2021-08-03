@@ -11,7 +11,11 @@ const InputDataPage = () => {
     const [spots, setSpots] = useState([]);
 
     const onClickHandler = () => {
-        setValue(spots.concat(value));
+        if (value) {
+            setValue(spots.concat(value));
+        }else{
+            setValue(spots);
+        }
     };
 
     const onClickBackHandler = () => {

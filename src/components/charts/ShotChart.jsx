@@ -12,7 +12,7 @@ const ShotChart = (props) => {
 
     useEffect(() => {
         const final_shots = data.map((shot) => ({
-            x: shot.x, 
+            x: shot.x,
             y: shot.y,
             shot_made_flag: shot.shot_made_flag,
         }));
@@ -41,6 +41,10 @@ ShotChart.propTypes = {
     ),
     minCount: PropTypes.number,
     isDisplayTips: PropTypes.bool,
+};
+
+ShotChart.defaultProps = {
+    data: [],
 };
 
 export default ShotChart;
