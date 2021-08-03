@@ -87,6 +87,15 @@ const Court = (props) => {
     );
 };
 
-Court.propTypes = {};
+Court.propTypes = {
+    spots: PropTypes.arrayOf(
+        PropTypes.shape({
+            x: PropTypes.number,
+            y: PropTypes.number,
+            shot_made_flag: PropTypes.oneOf([1, 0]),
+        })
+    ),
+    setSpots: PropTypes.func,
+};
 
 export default Court;
