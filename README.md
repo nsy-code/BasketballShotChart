@@ -8,7 +8,7 @@
 <a name="appinfo"></a>
 ## Project Information
 It lets people input their shot data and generate their own shot chart and store it on the local storage.<br>
-<img src="./doc/Dashboard.PNG" alt="app design" width="700px"><br>
+<img src="./doc/Dashboard.PNG" alt="app design" width="500px"><br>
 
 <a name="technologies"></a>
 ## Technologies
@@ -17,7 +17,7 @@ It lets people input their shot data and generate their own shot chart and store
 
 <a name="design"></a>
 ## Design
-<img src="./doc/design.png" alt="app design" width="700px">
+<img src="./doc/design.png" alt="app design" width="500px">
 
 <a name="features"></a>
 ## Features
