@@ -7,6 +7,7 @@
 
 <a name="appinfo"></a>
 ## Project Information
+Demo: https://basketball-shotchart.netlify.app/ <br>
 It lets people input their shot data and generate their own shot chart and store it on the local storage.<br>
 <img src="./doc/Dashboard.PNG" alt="app design" width="500px"><br>
 
