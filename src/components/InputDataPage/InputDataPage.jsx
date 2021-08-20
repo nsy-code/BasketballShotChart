@@ -1,20 +1,35 @@
-import React, { useState } from "react";
-import { useLocalStorage } from "react-use";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import CardActions from "@material-ui/core/CardActions";
+import React, { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
+import HistoryIcon from "@material-ui/icons/History";
+import TextField from "@material-ui/core/TextField";
 import Court from "../charts/Court";
+import { useLocalStorage } from "react-use";
 
-const InputDataPage = () => {
-    const [value, setValue] = useLocalStorage("shot-data");
+const InputDataPage = (props) => {
+    const [dataList, setDataList] = useLocalStorage("shot-data");
     const [spots, setSpots] = useState([]);
+    const [title, setTitle] = useState(new Date().toLocaleDateString());
+    const [id, setId] = useState(Date.now().toString()
+    );
+
+    useEffect(() => {
+        const query = new URLSearchParams(props.location.search);
+        if (query.get("id")) {
+            let tempSpot = dataList.filter(
+                (element) => element.id === query.get("id")
+            );
+            setSpots(tempSpot[0].data);
+            setTitle(tempSpot[0].name);
+            setId(tempSpot[0].id);
+        }
+    }, [props.location.search, dataList]);
 
     const onClickHandler = () => {
-        if (value) {
-            setValue(spots.concat(value));
-        }else{
-            setValue(spots);
+        if (dataList) {
+            let temp = dataList.filter((el) => el.id !== id);
+            setDataList(temp.concat([{ name: title, id: id, data: spots }]));
+        } else {
+            setDataList({ name: title, id: id, data: spots });
         }
     };
 
@@ -26,47 +41,40 @@ const InputDataPage = () => {
         }
     };
 
-    const onClickLoadHandler = () => {
-        setSpots(value);
-    };
-
     return (
-        <div className="container">
-            <div className="row d-flex justify-content-center mt-2">
-                <Card style={{ width: "550px" }}>
-                    <CardContent>
-                        <div className="d-flex justify-content-end">
-                            <Button
-                                className="me-2"
-                                onClick={() => onClickBackHandler()}
-                            >
-                                Back
-                            </Button>
-                            <Button
-                                color="secondary"
-                                onClick={() => setSpots([])}
-                            >
-                                Clear Input
-                            </Button>
-                        </div>
-                        <Court spots={spots} setSpots={setSpots} />
-                    </CardContent>
-                    <CardActions className="d-flex justify-content-end">
+        <div className="container" >
+            <div
+                className="row"
+                style={{ marginLeft: "20px", marginRight: "20px" }}
+            >
+                <TextField
+                    label="Title"
+                    value={title}
+                    onChange={(event) => setTitle(event.target.value)}
+                    style={{ width: "100%" }}
+                />
+            </div>
+
+            <div className="row justify-content-center mt-2">
+                <div style={{ width: "550px" }}>
+                    <Court spots={spots} setSpots={setSpots} />
+                    <div className="mt-4 d-flex justify-content-between">
                         <Button
                             className="me-2"
-                            onClick={() => onClickLoadHandler()}
+                            color="secondary"
+                            onClick={() => setSpots([])}
                         >
-                            Load
+                            Clear Input
                         </Button>
-                        <Button
-                            className="me-2"
-                            color="primary"
-                            onClick={onClickHandler}
-                        >
+                        <Button onClick={() => onClickBackHandler()}>
+                            <HistoryIcon />
+                            Back
+                        </Button>
+                        <Button color="primary" onClick={onClickHandler}>
                             Save
                         </Button>
-                    </CardActions>
-                </Card>
+                    </div>
+                </div>
             </div>
         </div>
     );

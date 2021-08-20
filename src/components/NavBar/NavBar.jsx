@@ -24,7 +24,7 @@ const NavBar = (props) => {
                 icon={<DashboardIcon />}
             />
             <BottomNavigationAction
-                value="/input"
+                value="/list"
                 label="Input"
                 icon={<GestureIcon />}
             />

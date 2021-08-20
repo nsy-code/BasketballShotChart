@@ -5,15 +5,20 @@ import {
     withRouter,
 } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
-import InputDataPage from "./components/InputDataPage";
 import DataEditPage from "./components/DataEditPage";
+import ShotMapListPage from "./components/ShotMapListPage";
+import InputDataPage from "./components/InputDataPage/InputDataPage";
 import NavBar from "./components/NavBar";
 
 function App(props) {
     return (
-        <div>
+        <div className="mt-4">
             <Switch>
                 <Route
+                    path="/list"
+                    render={(props) => <ShotMapListPage {...props} />}
+                />
+                                <Route
                     path="/input"
                     render={(props) => <InputDataPage {...props} />}
                 />

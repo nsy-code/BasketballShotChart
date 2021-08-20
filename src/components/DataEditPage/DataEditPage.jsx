@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import { useLocalStorage } from "react-use";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 
 const DataEditPage = () => {
@@ -18,10 +15,10 @@ const DataEditPage = () => {
     };
 
     return (
-        <div className="container">
-            <div className="row d-flex justify-content-center mt-2">
-                <Card style={{ width: "550px", height: "590px" }}>
-                    <CardContent>
+        <div >
+            <div className="d-flex justify-content-center mt-2">
+                <div style={{ width: "550px", height: "590px" }}>
+                    <div>
                         <textarea
                             id="w3review"
                             name="w3review"
@@ -29,8 +26,8 @@ const DataEditPage = () => {
                             onChange={onChangeHandler}
                             style={{ width: "100%", height: "500px", resize: "none" }}
                         />
-                    </CardContent>
-                    <CardActions className="d-flex justify-content-end">
+                    </div>
+                    <div className="d-flex justify-content-end">
                         <Button
                             className="me-2"
                             color="primary"
@@ -38,8 +35,8 @@ const DataEditPage = () => {
                         >
                             Save
                         </Button>
-                    </CardActions>
-                </Card>
+                    </div>
+                </div>
             </div>
         </div>
     );

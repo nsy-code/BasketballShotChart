@@ -55,7 +55,7 @@ const Court = (props) => {
     };
 
     return (
-        <div>
+        <div className="">
             <div className="d-flex justify-content-between">
                 <div className="form-check form-switch">
                     <input
@@ -82,7 +82,7 @@ const Court = (props) => {
 
             <div
                 ref={divRef}
-                style={{ minHeight: "200px", minWidth: "200px" }}
+                style={{ minHeight: "200px", minWidth: "200px", width:"100%" }}
                 id="court-chart"
                 onClick={(e) => _onClick(e)}
                 onMouseMove={_onMouseMove}

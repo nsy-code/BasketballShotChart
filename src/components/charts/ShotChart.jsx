@@ -18,7 +18,7 @@ const ShotChart = (props) => {
         }));
 
         const courtSelection = d3.select("#shot-chart");
-        courtSelection.html("hi");
+        courtSelection.html("");
         const chart_court = court().width(500);
         const chart_shots = shots()
             .shotRenderThreshold(minCount)
