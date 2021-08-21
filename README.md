@@ -9,7 +9,7 @@
 ## Project Information
 Demo: https://basketball-shotchart.netlify.app/ <br>
 It lets people input their shot data and generate their own shot chart and store it on the local storage.<br>
-<img src="./doc/Dashboard.PNG" alt="dashboard" width="300px"><br>
+<img src="./doc/Dashboard.PNG" alt="dashboard" width="400px"><br>
 
 <a name="technologies"></a>
 ## Technologies
@@ -28,7 +28,7 @@ It lets people input their shot data and generate their own shot chart and store
 - Can select different records in the storage.
 - The shot threshold can be adjusted to fullfilled the need.
 - Auto remove old data in local storage.<br>
-<img src="./doc/Dashboard.PNG" alt="dashboard" width="300px"><br>
+<img src="./doc/Dashboard.PNG" alt="dashboard" width="400px"><br>
 
 ### Input Page
 - Can create, edit and delete records.
@@ -36,9 +36,12 @@ It lets people input their shot data and generate their own shot chart and store
 - Knowing the spot position by pointing on it.
 - Can load local storage data.
 - Can undo by clicking <span style="color:grey;">BACK</span> button.<br>
-<img src="./doc/List.PNG" alt="list" width="200px">
-<img src="./doc/ChartInput.PNG" alt="input" width="200px"><br>
+ 
+List Page                                            |  Input Page
+:---------------------------------------------------:|:---------------------------------------------------------:
+<img src="./doc/List.PNG" alt="list" width="300px">  | <img src="./doc/ChartInput.PNG" alt="input" width="300px">
+<br>
 
 ### Data Page
 - Can edit local storage data and save it.<br>
-<img src="./doc/ShotData.PNG" alt="data" width="300px"><br>
+<img src="./doc/ShotData.PNG" alt="data" width="400px"><br>
